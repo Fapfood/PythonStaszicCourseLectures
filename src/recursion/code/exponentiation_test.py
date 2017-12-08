@@ -1,4 +1,4 @@
-from code.exponentiation import exponentiation
+from recursion.code.exponentiation import exponentiation
 
 print(exponentiation(2, 1))  # 2
 print(exponentiation(2, 2))  # 4

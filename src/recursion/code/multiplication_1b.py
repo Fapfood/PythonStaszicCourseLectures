@@ -1,6 +1,4 @@
-E = 0
-C = 0
-O = 0
+E, C, O = 0, 0, 0
 
 
 def multiplication(i, j):
