@@ -1,0 +1,67 @@
+\begin{frame}[allowframebreaks]{Wzory}
+    \begin{definition}[recursion 1]
+        \[ i \cdot j =
+        \begin{cases}
+            -i + (i \cdot (j+1)) & \text{, for } j \leq -1 \\
+            0 & \text{, for } j = 0 \\
+            1 & \text{, for } j = 1 \\
+            i + (i \cdot (j-1)) & \text{, for } j \geq 2
+        \end{cases}
+        \]
+    \end{definition}
+    \begin{definition}[recursion 2]
+        \[ i \cdot j =
+        \begin{cases}
+            -(i \cdot (-j)) & \text{, for } j \leq -1 \\
+            0 & \text{, for } j = 0 \\
+            1 & \text{, for } j = 1 \\
+            i + (i \cdot (j-1)) & \text{, for } j \geq 2
+        \end{cases}
+        \]
+    \end{definition}
+    \begin{definition}[recursion 3.1]
+        \[ i \cdot j =
+        \begin{cases}
+            0 & \text{, for } j = 0 \lor i = 0 \\
+            -(i \cdot (-j)) & \text{, for } j < 0 \\
+            -((-i) \cdot j) & \text{, for } i < 0 \\
+            (j \cdot i) & \text{, for } i < j \\
+            (i * j) & \text{, otherwise}
+        \end{cases}
+        \]
+    \end{definition}
+    \begin{definition}[recursion 3.2]
+        \[ i * j =
+        \begin{cases}
+            i & \text{, for } j = 1 \\
+            (i * (j-1)) & \text{, otherwise}
+        \end{cases}
+        \]
+    \end{definition}
+\end{frame}
+\begin{frame}[fragile,allowframebreaks]{Kod w Pythonie}
+    \lstinputlisting{recursion/code/multiplication_1.py}
+    \lstinputlisting{recursion/code/multiplication_2.py}
+    \lstinputlisting{recursion/code/multiplication_3.py}
+\end{frame}
+\begin{frame}[fragile,allowframebreaks]{Trochę o złożoności i optymalizacji}
+    Oznaczmy czasy:
+    \begin{itemize}
+        \item przez E czas porównania dwóch wartości. \\
+        \item przez C czas operacji potrzebnych do pojedyńczego wejścia do funkcji i wyjścia z niej, nie wliczając czasu operacji wewnątrz. \\
+        \item przez O czas podstawowej operacji matematycznej, takiej jak dodanie dwóch wartości, zamiana liczby na przeciwną, itp
+    \end{itemize}
+    Ile i jakiego typu operacji wystąpi w mnożeniu $(-2) \cdot 20$? \\
+    Zastanówmy się: \\
+    1 przebieg: 1 C, 3 E, 2 O. \\
+    Wiecie czemu? \\
+    Wszystkie przebiegi wyniosą 30 C, 10 E, 18 O. \\
+    Tutaj wystarczyło pomnożyć, jednak dla np.: $(-2) \cdot (-5)$ wyjdzie 7 C, 6 E, 10 O, przy pierwszym przebiegu 1 E, 1 C, 3 O. \\
+    Tutaj mnożenie się nie sprawdzi. \\
+    Zastanówmy się skąd dokładnie biorą się te liczby. \\
+    Pomoże nam w tym kod zedytowany tak, by zliczał ile razy musiał wykonać odpowiednią operację.
+    \lstinputlisting{recursion/code/multiplication_1b.py}
+    Czy gdy zamienimy kolejnością instrukcje otrzymamy inne wyniki? \\
+    Co z pozostałymi funkcjami mnożącymi które napisaliśmy? \\
+    Sprawdźcie to dla różnych funkcji i danych wejściowych.
+\end{frame}

@@ -1,0 +1,32 @@
+\begin{frame}{Wzory}
+    \begin{definition}
+        \[ n! = \prod\limits_{k = 1}^{n}k \qquad \text{, for } n \geq 1 \]
+        \[ 0! = 1 \]
+    \end{definition}
+    \begin{definition}[recursion]
+        \[ n! =
+        \begin{cases}
+            1 & \text{, for } n = 0 \\
+            n \cdot (n - 1)! & \text{, for } n \geq 1
+        \end{cases}
+        \]
+    \end{definition}
+\end{frame}
+\begin{frame}[fragile]{Kod w Pythonie}
+    \lstinputlisting{recursion/code/factorial.py}
+\end{frame}
+\begin{frame}{Stos wywołań funkcji}
+    \centering
+    starting with 5\\
+    starting with 4\\
+    starting with 3\\
+    starting with 2\\
+    starting with 1\\
+    starting with 0\\
+    ending with 0\\
+    ending with 1\\
+    ending with 2\\
+    ending with 3\\
+    ending with 4\\
+    ending with 5\\
+\end{frame}

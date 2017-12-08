@@ -1,0 +1,86 @@
+\lstset{
+style=python,
+morekeywords={[2]
+factorial,
+fibonacci,
+hanoi,
+palindrome,
+exponentiation,
+multiplication,
+code
+}
+}
+
+\section{Silnia}\label{sec:factorial}
+\input{recursion/factorial.tex}
+
+
+\section{Ciąg Fibonacciego}\label{sec:fibonacci}
+\input{recursion/fibonacci.tex}
+
+
+\section{Wieża Hanoi}\label{sec:hanoi}
+\input{recursion/hanoi.tex}
+
+
+\section{Palindromy}\label{sec:palindrome}
+\begin{frame}[fragile]{Kod w Pythonie}
+    \lstinputlisting{recursion/code/palindrome.py}
+\end{frame}
+
+
+\section{Potęgowanie}\label{sec:exponentiation}
+\begin{frame}{Wzory}
+    \begin{definition}[recursion]
+        \[ i^j =
+        \begin{cases}
+            1 & \text{, for } j = 0 \land i \neq 0 \\
+            i \cdot i^{(j-1)} & \text{, for } j \geq 1 \\
+            \Big( \frac{1}{i} \Big) ^{-j} & \text{, for } j \leq -1
+        \end{cases}
+        \]
+    \end{definition}
+\end{frame}
+\begin{frame}[fragile,allowframebreaks]{Kod w Pythonie}
+    \lstinputlisting{recursion/code/exponentiation.py}
+    \lstinputlisting{recursion/code/exponentiation_test.py}
+\end{frame}
+
+
+\section{Mnożenie}\label{sec:multiplication}
+\input{recursion/multiplication.tex}
+
+
+\section{Fraktale}\label{sec:fractals}
+\begin{frame}{Płatek Kocha}
+    \centering
+    \includegraphics[height=0.8\textheight]{recursion/graphics/koch_snowflake.png}
+\end{frame}
+\begin{frame}[fragile]{Kod w Pythonie}
+\lstinputlisting{recursion/code/snowflake.py}
+\end{frame}
+
+
+\section{Inne problemy rekurencyjne}\label{sec:inneProblemyRekurencyjne}
+\begin{frame}{Sortowanie przez scalanie}
+    \includegraphics[width=\textwidth,height=0.8\textheight]{recursion/graphics/mergesort.png}
+\end{frame}
+\begin{frame}{Sortowanie szybkie}
+    \includegraphics[width=\textwidth,height=0.8\textheight]{recursion/graphics/quicksort.png}
+\end{frame}
+\begin{frame}{Problem skoczka}
+    \centering
+    \includegraphics[height=0.8\textheight]{recursion/graphics/knight_tour.jpg}
+\end{frame}
+\begin{frame}[allowframebreaks]{Zadania i problemy}
+    \begin{enumerate}
+        \item Napisz algorytm iteracyjnego obliczania silnii i porównaj czasy wykonania z algorytmem rekurencyjnym. Zastanów się, dlaczego silnia nazywana jest antyprzykładem rekurencji? \\
+        \item Oblicz ilość wywołań funkcji obliczającej n-ty wyraz ciągu fibonacciego dla n-dużego problemu. Czy można go uprościć do jakiegoś wzoru jawnego (nierekurencyjnego)? Poczytaj o funkcjach tworzących i wzorze Bineta. \\
+        \item Pobaw się klasą Tower dla n = 64 tak jak w legendzie. Zostaw tower.plot_loop_steps(0.1) na noc i sprawdź do którego krążka doszedł program nad ranem. \\
+        \item Napisz program do testowania palindromów który mieści się w jednej linijce i ma \textcolor{green}{\checkmark} w PyCharmie, tzn nie wywołuje errorów ani warningów, a ctrl+l go nie poprawia. Porównaj czas i poprawność jego działania z algorytmem rekurencyjnym. Program który ja napisałem miał 107 znaków - spróbuj napisać krótszy! \\
+        \item Przeprowadź analizę koniecznych operacji dla pozostałych algorytmów mnożenia rekurencyjnego. Dodaj w kodzie fragmenty odpowiedzialne za policzenie operacji i przetestuj wszystkie algorytmy dla różnych danych wejściowych. Zastanów się, jakie są optymistyczne i pesymistyczne przypadki wywołania różnych algorytmów? \\
+        \item Zaimplementuj bardziej optymalną twoim zdaniem wersję potęgowania rekurencyjnego. Przeprowadź jej analizę i porównaj z algorytmem z tej prezentacji. \\
+        \item Zaimplementuj jedno z sortowań rekurencyjnych. \\
+        \item Zastanów się dla jakiego rozmiaru problemu skoczka nie ma rozwiązania, nawet otwartego. Spróbuj zaimplementować algoytm rozwiązujący problem. \\
+    \end{enumerate}
+\end{frame}
