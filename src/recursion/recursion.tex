@@ -14,6 +14,25 @@ code
 }
 }
 
+\section{Słowo wstępu}\label{sec:introduction}
+\begin{frame}{Parametry}
+    Funkcje rekurencyjne wywołują same siebie (bezpośrednio lub pośrednio
+    przy pomocy innej funkcji pośrednio rekurencyjnej) z innymi parametrami,
+    które powinny zmniejszyć rozwiązywany problem(zbliżyć go do rozwiązania).
+    By rekurencja nie działała w nieskończoność, należy dobrze zdefiniować
+    warunki jej zakończenia, sprawdzane przed wywołaniem rekurencyjnym.
+    Parametry funkcji rekurencyjnych to:
+    \begin{itemize}
+        \item parametry rozwiązywanego problemu
+        (wejściowe i czasem wyjściowe, np. przez wskaźnik w języku c);
+        \item parametry pomocnicze podczas działania funkcji
+        (np. akumulator w podejściu funkcyjnym);
+        \item parametry sterujące rekurencją
+        (wykorzystywane w warunkach zakończenia, np. poziom zagłębienia, ilość iteracji).
+    \end{itemize}
+\end{frame}
+
+
 \section{Silnia}\label{sec:factorial}
 \input{recursion/factorial.tex}
 
