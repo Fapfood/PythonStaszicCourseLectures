@@ -1,3 +1,5 @@
+\usepackage{graphicx}
+
 \lstset{
 style=python,
 morekeywords={[2]
@@ -29,40 +31,106 @@ morekeywords={[2]
     \lstinputlisting{data_structures/code/basic_types_2.py}
 \end{frame}
 \begin{frame}{Struktura danych - lista}
-    list() - lista jednokierunkowa działa jak stos rezerwowy w grze pasjans - możemy
-    podglądać jedną kartę i przesuwać się tylko do następnej. Listy dwukierunkowe
-    pozwalają przesuwać się w obie strony, ale podglądamy wciąż jedną kartę. Do listy
-    możemy dodawać elementy w dowolne miejsce i usuwać je.
-
-    Lista przyjaciół: [Ala, Ola, Ela], jest równoważną liście [Ela, Ala, Ola].
-    Kolejność na liście nie zawsze ma znaczenie.
+    \begin{small}
+        \begin{itemize}
+            \item list() \\
+            \item lista jednokierunkowa działa jak stos rezerwowy w grze pasjans - możemy
+            podglądać jedną kartę i przesuwać się tylko do następnej \\
+            \item lista dwukierunkowa pozwala przesuwać się w obie strony \\
+            \item do listy możemy dodawać elementy w dowolne miejsce i usuwać je \\
+            \item listy przyjaciół: [Ala, Ola, Ela] oraz [Ela, Ala, Ola] są równoważne - kolejność
+            nie ma znaczenia \\
+            \item jeśli powyższą listę potraktujemy jako posortowaną listę przyjaciół według jakiegoś
+            kryterium, np. który z przyjaciół najlepiej gotuje, albo którą z przyjaciółek najchętniej
+            zaproszę na studniówkę - wtedy kolejność będzie mieć znaczenie
+        \end{itemize}
+    \end{small}
+    \begin{table}
+        \centering
+        \begin{tabular}{c|c|c|c|c|c|c}
+            \cline{2-2} \cline{4-4} \cline{6-6}
+            HEAD \longrightarrow & DATA & \multirow{ 2}{*}{\nearrow} & DATA & \multirow{ 2}{*}{\nearrow} & DATA & \\
+            \cline{2-2} \cline{4-4} \cline{6-6}
+            & NEXT & & NEXT & & NEXT & \longrightarrow NULL \\
+            \cline{2-2} \cline{4-4} \cline{6-6}
+        \end{tabular}
+    \end{table}
 \end{frame}
 \begin{frame}{Struktura danych - krotka}
-    tuple() - to np para, trójka, czwórka, czyli ogólnie krotka. Uporządkowany rekord
-    który ma niezmienną ilość i znaczenie pól, np (3, 4) jako współrzędne na płaszczyźnie.
-    Taką parę musimy interpretować w sposób x=3, y=4, nie możemy zamienić cyfr, w przeciwieństwie
-    do listy znajomych.
+    \begin{itemize}
+        \item tuple() \\
+        \item para, trójka, czwórka, czyli ogólnie krotka \\
+        \item uporządkowany rekord który ma niezmienną ilość i znaczenie pól \\
+        \item np. (3, 4) jako współrzędne na płaszczyźnie - taką parę musimy interpretować
+        w sposób (x=3, y=4) - nie możemy zamienić cyfr, w przeciwieństwie do listy znajomych
+    \end{itemize}
 \end{frame}
-\begin{frame}{Struktura danych - słownik,mapa}
-    dict() - jest jak książka telefoniczna, znając klucz
-    (nazwisko) możemy wyszukać wartość (numer telefonu).
+\begin{frame}{Struktura danych - słownik, mapa}
+    \begin{itemize}
+        \item dict() \\
+        \item jest jak książka telefoniczna, znając klucz (nazwisko) możemy wyszukać wartość (numer telefonu) \\
+        \item budowany z wykorzystaniem tablicy i funkcji skrótu(haszującej) - stąd jego inna nazwa - tablica
+        z haszowaniem, mieszająca \\
+        \item tablica ma tą przewagę nad listą, że dostęp do elementów mamy zapewniony w czasie stałym O(1),
+        py pobrać element z listy musimy przejść po niej pesymistycznie w czasie liniowym O(n) \\
+        \item lista ma tą przewagę nad tablicą, że nie musi przewidywać wielkości przyszłych danych - można
+        ją dynamicznie poszerzać \\
+        \item dzięki wykorzystaniu funkcji skrótu, możemy zmniejszyć rozmiar wymaganej tablicy \\
+        \item alternatywnie może być zaimplementowany jako drzewo poszukiwań
+    \end{itemize}
+\end{frame}
+\begin{frame}{Problem dużej tablicy}
+    Przyjmijmy, że jesteśmy twórcą książki telefonicznej dla miasteczka, którego mieszkańcy mają
+    dziwne, 10 literowe nazwiska. Aby zapewnić, że dla każdego możliwego nazwiska znajdzie się
+    miejsce w naszej tablicy, musielibyśmy zapewnić jej rozmiar co najmniej 26^{10}. \\
+    Jeśli w mieście żyje kilkanaście osób, zmarnujemy bardzo dużo pamięci. \\
+    Na potrzeby rozwiązania skorzystajmy z 10 elementowej tablicy i funkcji skrótu znanej z numerologii.
+    Zupełnie nie przejmujmy się tym, że ta funkcja ma beznadziejne własności.
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+            \cline{1-9}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+            \cline{1-9}
+            A & B & C & D & E & F & G & H & I \\
+            J & K & L & M & N & O & P & Q & R \\
+            S & T & U & V & W & X & Y & Z & \\
+            \cline{1-9}
+        \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}{Obliczanie funkcji skrótu}
+    Wartość numeryczna nazwiska KABARETKID wynosi 2121952294 \rightarrow 37 \rightarrow 10 \rightarrow 1. \\
+    MATEMATYKA \rightarrow 4125412721 \rightarrow 29 \rightarrow 11 \rightarrow 2 \\
+    DELFINADDA \rightarrow 4536951441 \rightarrow 42 \rightarrow 6 \\
+    COPERNICON \rightarrow 3675959365 \rightarrow 58 \rightarrow 13 \rightarrow 4 \\
+    MOCZYMORDA \rightarrow 4638746941 \rightarrow 52 \rightarrow 7 \\
+    WIBRAKACJA \rightarrow 5929121311 \rightarrow 34 \rightarrow 7 \\
+    Wartości trafiają pod odpowiednie pola tablicy, a w przypadku wystąpienia konfliktu...
+    Jednym z rozwiązań jest trzymanie w tablicy wielu małych list, do których dodajemy wartości
+    z kluczem o tej samej skróconej wartości. \\
+    Dobra funkcja skrótu rozrzuca wartości równomiernie po całej tablicy, chociaż konflikty zawsze
+    będą się zdarzały - co jest nieuniknione, gdy liczba elementów przekroczy rozmiar tablicy.
+\end{frame}
+\begin{frame}{Binarne drzewo poszukiwań -BST}
+    \begin{center}
+        \includegraphics[height=0.8\textheight]{data_structures/graphics/bst.png}
+    \end{center}
 \end{frame}
 \begin{frame}{Struktura danych - zbiór}
-    set() - to zbiór danych w rozumieniu teorii zbiorów, czyli worek, do którego coś należy lub nie.
-    Taki worek może być też wyobrażany jako słownik z tylko dwoma wartościami, True - gdy należy
-    i False - gdy nie należy.
-
-    Załóżmy że na kurs programowania chodzi 6 osób: \{Ala, Ela, Ola, Ula, Iza, Eberhard\}.
-
-    Z rekurencją nie radzi sobie \{Ela, Ula\}.
-
-    Metody HTTP są niezrozumiałe dla \{Ala, Ela, Iza\}.
-
-    Algorytmów grafowych nie rozumieją \{Ela, Ola, Iza\}.
-
-    Eberhard jako jedyny na zajęciach zadaje pytania, a w domu utrwala materiał - dlatego wszystko rozumie.
-
-    Wymienione grupy osób są tematycznymi zbiorami, na których możemy wykonywać operację teoriomnogościowe.
+    \begin{itemize}
+        \item set() \\
+        \item zbiór danych w rozumieniu teorii zbiorów, czyli worek, do którego coś należy lub nie \\
+        \item taki worek może być też wyobrażany jako słownik z tylko dwoma wartościami, True - gdy należy
+        i False - gdy nie należy
+    \end{itemize}
+    Załóżmy że na kurs programowania chodzi 6 osób: \{Ala, Ela, Ola, Ula, Iza, Eberhard\}. \\
+    Z rekurencją nie radzi sobie \{Ela, Ula\}. \\
+    Metody HTTP są niezrozumiałe dla \{Ala, Ela, Iza\}. \\
+    Algorytmów grafowych nie rozumieją \{Ela, Ola, Iza\}. \\
+    Eberhard jako jedyny na zajęciach zadaje pytania, a w domu utrwala materiał - dlatego wszystko zrozumiał. \\
+    Wymienione grupy osób są tematycznymi zbiorami, na których możemy wykonywać operację teoriomnogościowe:
+    sumy, przecięcia, dopełnienia, itd.
 \end{frame}
 
 \begin{frame}{Ułamki}
