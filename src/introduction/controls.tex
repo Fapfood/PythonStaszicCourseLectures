@@ -1,0 +1,70 @@
+\begin{frame}{If-Elif-Else}
+    \lstinputlisting{introduction/code/controls/if_pattern.py}
+    Konstrukcji \emph{if} używamy by wykonać pewny blok kodu wyłącznie, gdy spełniony jest warunek logiczny. Warunek musi wyrażać wartość logiczną. \\
+    Konstrukcja \emph{elif} przydaje się, gdy chcemy sprawdzić sekwencyjnie kilka warunków logicznych. Jeśli którykolwiek zostanie spełniony, nie będziemy sprawdzać kolejnych warunków. \\
+    Konstrukcja \emph{else} służy do zdefiniowania wszystkich pozostałych ścieżek, nie określonych w żadnym warunku.
+\end{frame}
+
+\begin{frame}{If-Elif-Else}
+    \lstinputlisting{introduction/code/controls/if.py}
+\end{frame}
+
+\begin{frame}{While-Else}
+    \lstinputlisting{introduction/code/controls/while_pattern.py}
+    Konstrukcji \emph{while} używamy gdy chcemy powtarzać fragment kodu, \textbf{dopóki} jakiś warunek jest spełniony. Operacje zachodzące w ciele pętli powinny doprowadzić do sytuacji, w której warunek po skończonej liczbie kroków przestanie być spełniony. W przeciwnym wypadku utkniemy w pętli nieskończonej. \\
+    Konstrukcja \emph{else} wykona się zawsze gdy warunek przyjmie wartość False, zarówno gdy od początku jest niespełniony (ciało pętli się nie wykona), jak również po wszystkich iterachach pętli (gdy warunek przestanie być spełniany). \textbf{Nie} wykona się, gdy z pętli wyszliśmy za pomocą słowa \emph{break}.
+\end{frame}
+
+\begin{frame}{While-Else}
+    \lstinputlisting{introduction/code/controls/while.py}
+\end{frame}
+
+\begin{frame}{For-In-Else}
+    \lstinputlisting{introduction/code/controls/for_pattern.py}
+    Konstrukcji \emph{for ... in} używamy, gdy chcemy wykonać coś \textbf{dla każdej} wartości z jakiegoś zbioru (wyrażonego za pomocą iteratora). Iterować możemy po liście, krotce, zbiorze, napisie, itd. Funkcje wbudowane \emph{range()} oraz \emph{enumerate()} także zwracają iteratory. \\
+    Konstrukcja \emph{else} działa na podobnej zasadzie, jak przy pętli \emph{while}. Ten blok kodu wykona się, gdy nie będzie już kolejnych wartości do iterowania (pętla wykonała się dla wszystkich, lub iterator od początku był pusty).
+\end{frame}
+
+\begin{frame}{For-In-Else}
+    \lstinputlisting{introduction/code/controls/for.py}
+\end{frame}
+
+\begin{frame}{Break-Continue}
+    \lstinputlisting{introduction/code/controls/break.py}
+    Słowo kluczowe \emph{break} przerywa działanie najbardziej zagnieższonej pętli i przenosi sterowanie poza nią (\textbf{pomija} blok kodu w \emph{else}). \\
+    Słowo kuczowe \emph{continue} przerywa wykonanie obecnej iteracji pętli i przechodzi do sprawdzenia warunku (\emph{while}), lub przechodzi do kolejnej wartości z iteratora (\emph{for}).
+\end{frame}
+
+\begin{frame}{Wyjątki}
+    Wyjątek lub błąd (np. dzielenie przez zero, próba otwarcia nieistniejącego pliku) to sytuacja, w której działanie programu znalazło się w sytuacji, której nie można traktować jako poprawne wykonanie (happy path). \\
+    Powoduje to przerwanie wykonania programu i eskalację błędu do najbliższego bloku kodu, który potrafi przechwycić ten wyjątek. Błąd eskaluje pokonując w odwrotnej kolejności stos wywołań i zagnieżdzeń funkcji. Jeśli wyjątek nie zostanie przechwycony, błąd eskaluje do najbardziej zewnętrznego wywołania i przerwie działanie programu. Jeśli wyjątek zostanie przechwycony, działanie programu zostanie wznowione w miejscu przechwycenia, a nie zgłoszenia wyjątku. \\
+    Wyjątki nie powinny być wykorzystywane jako mechanizm standardowego przekazywania sterowania w programie - nie powinny zastępować warunków i pętli.
+\end{frame}
+
+\begin{frame}{Wyjątki - możliwości}
+    \lstinputlisting{introduction/code/controls/exceptions_pattern.py}
+\end{frame}
+
+\begin{frame}{Wyjątki - możliwości}
+   Słowo kluczowe \emph{raise} zgłasza wystąpienie wyjątku lub błędu. \\
+   Konstrukcja \emph{try} definiuje blok kodu, wewnątrz którego spodziewamy się wystąpienia wyjątku. \\
+   Konstrukcja \emph{except} pozwala przechwycić wyjątki konkretnych typów lub wszystkie wyjątki. W tym bloku kodu dokonujemy ich przetwarzania. \\
+   Słowo kluczowe \emph{as} pozwala zapamiętać wyjątek w zmiennej i wykorzystać go w bloku \emph{except}. \\
+   Konstrukcji \emph{else} używamy do zdefiniowania działań, które zostaną podjęte gdy żadny wyjątek nie zostanie zgłoszony. \\
+   Konstrukcja \emph{finally} określa działania, które zostaną wykonane zawsze, nieważne, czy wyjątek został zgłoszony, czy nie (działa na podobnej zasadzie jak \emph{else} w przypadku pętli). W tym bloku zazwyczaj definiujemy działania sprzątające po kodzie wykonywanym w bloku \emph{try} (np. zamykanie plików).
+\end{frame}
+
+\begin{frame}{Wyjątki - bare except}
+    Sposób na złapanie każdego wyjątku:
+    \lstinputlisting[firstline=1, lastline=2]{introduction/code/controls/exceptions_bare_pattern.py}
+
+    Sposób na złapanie każdego wyjątku i wykorzystanie danych które przenosi:
+    \lstinputlisting[firstline=4, lastline=5]{introduction/code/controls/exceptions_bare_pattern.py}
+
+    Sposób na ponowne zgłoszenie poprzedniego wyjątku - możemy wykonać jakieś operacje, np. zapisać treść błędu do logów, a następnie ponownie go zgłosić do dalszego przetwarzania:
+    \lstinputlisting[firstline=7, lastline=9]{introduction/code/controls/exceptions_bare_pattern.py}
+\end{frame}
+
+\begin{frame}{Wyjątki}
+    \lstinputlisting{introduction/code/controls/exceptions.py}
+\end{frame}

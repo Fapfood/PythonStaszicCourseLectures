@@ -1,0 +1,94 @@
+\begin{frame}{Skalarne typy danych}
+    \lstinputlisting{introduction/code/scalar_types/basic_types_1.py}
+\end{frame}
+
+\begin{frame}{Proste obliczenia}
+    \lstinputlisting{introduction/code/scalar_types/basic_types_2.py}
+\end{frame}
+
+\begin{frame}{Operatory liczbowe - int, float}
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            $+$ & dodawanie \\
+            \hline
+            $-$ & odejmowanie \\
+            \hline
+            $*$ & mnożenie \\
+            \hline
+            $/$ & dzielenie \\
+            \hline
+            $**$ & potęgowanie \\
+            \hline
+            $//$ & dzielenie całkowitoliczbowe \\
+            \hline
+            $\%$ & reszta modulo \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Obliczenia liczbowe - int, float}
+    \lstinputlisting{introduction/code/scalar_types/numeral.py}
+\end{frame}
+
+\begin{frame}{Operacje binarne}
+    NOT, $\lnot$, $\sim$ - negacja \\
+    AND, $\land$ - koniunkcja \\
+    NAND, $\barwedge$ - dysjunkcja \\
+    OR, $\lor$ - alternatywa, suma logiczna, alternatywa zwykła, alternatywa nierozłączna, alternatywa łączna \\
+    NOR, $\barvee$ - binegacja \\
+    XOR, $\veebar$ - alternatywa rozłączna, alternatywa wykluczająca \\
+    XNOR, $\iff$ - ekwiwalencja, równoważność \\
+    IMPLY, $\implies$ - implikacja, wynikanie \\
+    \scriptsize{
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|c||c|c||c|c||c|c||c|c||c|}
+            \hline
+            $p$ & $q$ & $\lnot p$ & $\sim q$ & $p \land q$ & $p \barwedge q$ & $p \lor q$ & $p \barvee q$ & $p \veebar q$ & $p \Leftrightarrow q$ & $p \Rightarrow q$ \\
+            \hline
+            F & F & T & T & F & T & F & T & F & T & T \\
+            \hline
+            F & T & T & F & F & T & T & F & T & F & T \\
+            \hline
+            T & F & F & T & F & T & T & F & T & F & F \\
+            \hline
+            T & T & F & F & T & F & T & F & F & T & T \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+\end{frame}
+
+\begin{frame}{Operatory binarne - bool}
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            $<$ & mniejszy niż \\
+            \hline
+            $>$ & większy niż \\
+            \hline
+            $<=$ & mniejszy lub równy \\
+            \hline
+            $>=$ & większy lub równy \\
+            \hline
+            $==$ & równy \\
+            \hline
+            $!=$ & różny \\
+            \hline
+            $and$ & i \\
+            \hline
+            $or$ & lub \\
+            \hline
+            $not$ & negacja \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Obliczenia binarne}
+    \lstinputlisting{introduction/code/scalar_types/binary.py}
+\end{frame}

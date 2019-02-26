@@ -1,0 +1,93 @@
+\begin{frame}{Wbudowane funkcje}
+    \Wider{
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            print() & wypisanie na standardowe wyjście \\
+            input() & pobranie ze standardowego wejścia \\
+            \hline
+            type() & typ zmiennej \\
+            \hline
+            range() & iterator sekwencji od a do b \\
+            \hline
+            abs() & wartość bezwzględna \\
+            \hline
+            min() & najmniejsza wartość sekwencji \\
+            max() & największa wartość sekwencji \\
+            \hline
+            filter() & filtrowanie funkcyjne \\
+            map() & mapowanie funkcyjne \\
+            \hline
+            reversed() & zwrócenie odwróconej sekwencji \\
+            sorted() & zwrócenie posortowanej sekwencji \\
+            \hline
+            $\cdots$ & $\cdots$ \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+    \url{https://docs.python.org/3.7/library/functions.html} - wszystkie dostępne
+\end{frame}
+
+\begin{frame}{Typy danych}
+    W Pythonie mamy wiele wbudowanych typów danych:
+    \begin{itemize}
+        \item float() - reprezentuje liczby rzeczywiste \footnote{Nie jest to do końca prawda, o czym przekonasz się na kolejnych slajdach.} \\
+        \item int() - reprezentuje liczby całkowite \\
+        \item str() - reprezentuje napisy - łańcuchy znaków \\
+        \item bool() - reprezentuje wartości logiczne \\
+        \item complex() - reprezentuje liczby urojone \\
+        \item list() - reprezentuje zmienną grupę danych \\
+        \item tuple() - reprezentuje uporządkowaną strukturę danych \\
+        \item dict() - reprezentuje grupę danych, które da się indeksować \\
+        \item set() - reprezentuje zbiór danych w rozumieniu teorii zbiorów \\
+    \end{itemize}
+    \url{https://docs.python.org/3.7/library/stdtypes.html} - wszystkie dostępne
+\end{frame}
+
+\begin{frame}{Klasyfikacja typów danych}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Typy skalarne:
+            \begin{itemize}
+                \item float() \\
+                \item int() \\
+                \item bool() \\
+                \item str() - jako znak np. dla funkcji ord() \\
+            \end{itemize}
+            Typy drzewiaste:
+            \begin{itemize}
+                \item dict() \\
+                \item set() \\
+            \end{itemize}
+            Typy liczbowe:
+            \begin{itemize}
+                \item float() \\
+                \item int() \\
+                \item complex() \\
+            \end{itemize}            
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Typy strukturalne:
+            \begin{itemize}
+                \item complex() \\
+                \item str() - jako łańcuch znaków \\
+                \item list() \\
+                \item tuple() \\
+                \item dict() \\
+                \item set() \\
+            \end{itemize}
+            Typy sekwencyjne:
+            \begin{itemize}
+                \item str() - jako łańcuch znaków \\
+                \item list() \\
+                \item tuple() \\
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Przypisanie}
+    \lstinputlisting{introduction/code/data_types/assignment.py}
+\end{frame}

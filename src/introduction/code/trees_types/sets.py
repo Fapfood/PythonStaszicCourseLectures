@@ -1,0 +1,17 @@
+aset = {3, 6, 'cat', 4.5, 3.14}
+print(len(aset))
+print('cat' in aset)
+print('dog' in aset)
+esat = {99, 3, 100}
+print(aset.union(esat))
+print(aset | esat)
+print(aset.intersection(esat))
+print(aset & esat)
+print(aset - esat)
+print({3, 6}.issubset(aset))
+aset.add('house')
+print(aset)
+aset.remove(4.5)
+print(aset)
+print(aset.pop())
+print(aset)

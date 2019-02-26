@@ -1,0 +1,123 @@
+\begin{frame}{Struktura danych - słownik, mapa}
+    \begin{itemize}
+        \item dict() \\
+        \item jest jak książka telefoniczna, znając klucz (nazwisko) możemy wyszukać wartość (numer telefonu) \\
+        \item budowany z wykorzystaniem tablicy i funkcji skrótu(haszującej) - stąd jego inna nazwa - tablica
+        z haszowaniem, mieszająca \\
+        \item tablica ma tą przewagę nad listą, że dostęp do elementów mamy zapewniony w czasie stałym O(1),
+        by pobrać element z listy musimy przejść po niej pesymistycznie w czasie liniowym O(n) \\
+        \item lista ma tą przewagę nad tablicą, że nie musi przewidywać wielkości przyszłych danych - można
+        ją dynamicznie poszerzać \\
+        \item dzięki wykorzystaniu funkcji skrótu, możemy zmniejszyć rozmiar wymaganej tablicy \\
+        \item alternatywnie może być zaimplementowany jako drzewo poszukiwań
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Operatory słowników}
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            $[]$ & dostęp przez klucz \\
+            \hline
+            $in$ & przynależność \\
+            \hline
+            $del$ & usuwanie wartości pod kluczem \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Metody słowników}
+    \Wider{
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            adict.keys() & lista kluczy \\
+            \hline
+            adict.values() & lista wartości \\
+            \hline
+            adict.items() & lista par klucz-wartość \\
+            \hline
+            adict.get(k) & element pod kluczem \\
+            adict.get(k,default) & element pod kluczem lub domyślny \\
+            \hline
+            adict.clear() & usunięcie wszystkich elementów ze słownika \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+\end{frame}
+
+\begin{frame}{Metody słowników}
+    \lstinputlisting{introduction/code/trees_types/dicts.py}
+\end{frame}
+
+\begin{frame}{Struktura danych - zbiór}
+    \begin{itemize}
+        \item set() \\
+        \item zbiór danych w rozumieniu teorii zbiorów, czyli worek, do którego coś należy lub nie \\
+        \item taki worek może być też wyobrażany jako słownik z tylko dwoma wartościami, True - gdy należy
+        i False - gdy nie należy
+    \end{itemize}
+    Załóżmy że na kurs programowania chodzi 6 osób: \{Ala, Ela, Ola, Ula, Iza, Eberhard\}. \\
+    Z rekurencją nie radzi sobie \{Ela, Ula\}. \\
+    Metody HTTP są niezrozumiałe dla \{Ala, Ela, Iza\}. \\
+    Algorytmów grafowych nie rozumieją \{Ela, Ola, Iza\}. \\
+    Eberhard jako jedyny na zajęciach zadaje pytania, a w domu utrwala materiał - dlatego wszystko rozumie. \\
+    Wymienione grupy osób są tematycznymi zbiorami, na których możemy wykonywać operację teoriomnogościowe:
+    sumy, przecięcia, dopełnienia, itd.
+\end{frame}
+
+\begin{frame}{Operatory zbiorów}
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            $|$ & unia \\
+            \hline
+            $\&$ & intersekcja \\
+            \hline
+            $-$ & różnica \\
+            \hline
+            $<=$ & podzbiór \\
+            \hline
+            $in$ & przynależność \\
+            \hline
+            $len$ & liczność \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Metody zbiorów}
+    \Wider{
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            aset.union(otherset) & unia \\
+            \hline
+            aset.intersection(otherset) & intersekcja \\
+            \hline
+            aset.difference(otherset) & różnica \\
+            \hline
+            aset.issubset(otherset) & podzbiór \\
+            \hline
+            aset.add(item) & dodanie do zbioru \\
+            \hline
+            aset.remove(item) & usunięcie ze zbioru \\
+            \hline
+            aset.pop() & usunięcie kolejnego (losowego?) ze zbioru \\
+            \hline
+            aset.clear() & usunięcie wszystkich elementów ze zbioru \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+\end{frame}
+
+\begin{frame}{Metody zbiorów}
+    \lstinputlisting{introduction/code/trees_types/sets.py}
+\end{frame}

@@ -1,0 +1,36 @@
+\begin{frame}{Definicje funkcji}
+    Dzięki zastosowaniu funkcji możemy reużywać fragmenty kodu oraz ukrywać szczegóły implementacyjne za interfejsem. \\
+    Deklaracja funkcji (jej interfejs) to jej pierwsza linia (nazwa oraz przyjmowane parametry). Następujący po deklaracji blok kodu to definicja funkcji. \\
+    Funkcja może być bezargumentowa lub przyjmować argumenty - ich skończoną lub nieskończoną liczbę. Skończona liczba argumentów może przyjmować wartości domyślne. \\
+    Funkcja może zwracać jakąś wartość (słowo kluczowe \emph{return}) lub nie zwracać wartości. Funkcje generujące mogą zwracać wiele wartości (słowo kluczowe \emph{yield}). \\
+    \begin{alertblock}{}
+        Domyslne argumenty są ewaluowane tylko raz!
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Definicje funkcji}
+    \lstinputlisting{introduction/code/functions/functions.py}
+\end{frame}
+
+\begin{frame}{Generatory}
+    Generatory pozwalają leniwie generować po jednej wartości, bez konieczności przechowywania w pamięci wszystkich przyszłych wartości. \\
+    \lstinputlisting{introduction/code/functions/generators.py}
+\end{frame}
+
+\begin{frame}{Gorliwy (eager) wujek}
+    Funkcje mogą zwracać wartości leniwie lub gorliwie. Gorliwe funkcje od razu zwracają wszystkie wyniki, a leniwe zwracają po jednym za każdym razem gdy się je wywoła. \\
+    \begin{exampleblock}{}
+       Wujek Janusz jest gorliwy. Gdy proszę go o dowcip każe mi czekać i zapisuje wszystkie znane mu dowcipy na kartce, co trwa kilka godzin. Następnie wręcza mi kartkę i mówi, że gdy najdzie mnie ochota na dowcip, mogę po prostu przeczytać kolejny z kartki. Mam już w domu kilkanaście kartek pełnych tych samych dowcipów wujka Janusza. Taka lista przydała mi się gdy jechałen na kolonie i chciałem zabrać ze sobą wszystkie dowcipy. Czasem jednak chciałbym usłyszeć tylko jeden...
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Leniwy (lazy) wujek}
+    \begin{exampleblock}{}
+        Wujek Stefan jest leniwy i zawsze gdy go poproszę opowiada tylko jeden dowcip. Kiedy chciałem spisać wszystkie jego dowcipy, żeby porównać ich listę z listą dowcipów wujka Janusza, musiałem wielokrotnie prosić go o kolejny dowcip i samemu je spisywać. Trwało to kilkanaście godzin, znacznie dłużej niż w przypadku wujka Janusza, który sam je zapisywał. Jednakże, gdy chcę usłyszeć tylko jeden dowcip, wujek Stefan jest znacznie lepszym wyborem niż wujek Janusz.
+    \end{exampleblock}
+    Generatory są leniwe i odpowiednio użyte mogą znacznie skrócić czas obliczeń. Użyte nieodpowiednio mogą go wydłużyć. \\
+\end{frame}
+
+\begin{frame}{Funkcje anonimowe}
+    \lstinputlisting{introduction/code/functions/lambda.py}
+\end{frame}

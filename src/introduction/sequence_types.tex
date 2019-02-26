@@ -1,0 +1,147 @@
+\begin{frame}{Struktura danych - lista}
+    \begin{small}
+        \begin{itemize}
+            \item list() \\
+            \item lista jednokierunkowa działa jak stos rezerwowy w grze pasjans - możemy
+            podglądać jedną kartę i przesuwać się tylko do następnej \\
+            \item lista dwukierunkowa pozwala przesuwać się w obie strony \\
+            \item do listy możemy dodawać elementy w dowolne miejsce i usuwać je \\
+            \item listy przyjaciół: [Ala, Ola, Ela] oraz [Ela, Ala, Ola] są równoważne - kolejność
+            nie ma znaczenia \\
+            \item jeśli powyższą listę potraktujemy jako posortowaną listę przyjaciół według jakiegoś
+            kryterium, np. który z przyjaciół najlepiej gotuje, albo którą z przyjaciółek najchętniej
+            zaproszę na studniówkę - wtedy kolejność będzie mieć znaczenie
+        \end{itemize}
+    \end{small}
+    \begin{table}
+        \centering
+        \begin{tabular}{c|c|c|c|c|c|c}
+            \cline{2-2} \cline{4-4} \cline{6-6}
+            HEAD $\longrightarrow$ & DATA & \multirow{ 2}{*}{$\nearrow$} & DATA & \multirow{ 2}{*}{$\nearrow$} & DATA & \\
+            \cline{2-2} \cline{4-4} \cline{6-6}
+            & NEXT & & NEXT & & NEXT & $\longrightarrow$ NULL \\
+            \cline{2-2} \cline{4-4} \cline{6-6}
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Struktura danych - krotka}
+    \begin{itemize}
+        \item tuple() \\
+        \item para, trójka, czwórka, czyli ogólnie krotka \\
+        \item uporządkowany rekord który ma niezmienną ilość i znaczenie pól \\
+        \item np. (3, 4) jako współrzędne na płaszczyźnie - taką parę musimy interpretować
+        w sposób (x=3, y=4) - nie możemy zamienić cyfr, w przeciwieństwie do listy znajomych
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Operatory sekwencji}
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            $[]$ & dostęp przez indeks \\
+            \hline
+            $+$ & konkatenacja \\
+            \hline
+            $*$ & powtórzenie \\
+            \hline
+            $in$ & przynależność \\
+            \hline
+            $len$ & długość \\
+            \hline
+            $[::]$ & slicing \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Operacje sekwencji}
+    \lstinputlisting{introduction/code/sequence_types/sequence.py}
+\end{frame}
+
+\begin{frame}{Slicing}
+    \lstinputlisting{introduction/code/sequence_types/slicing.py}
+\end{frame}
+
+\begin{frame}{Metody list}
+    \Wider{
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|p{8cm}|}
+            \hline
+            alist.append(item) & dodanie na koniec listy \\
+            \hline
+            alist.insert(i,item) & wstawienie na konkretną pozycję na liście (dodawanie, nie zastępowanie) \\
+            \hline
+            alist.pop(i) & usunięcie i zwrócenie elementu z konkretnej (ostatniej) pozycji z listy \\
+            \hline
+            alist.sort() & posortowanie w miejscu (zmodyfikowanie) \\
+            \hline
+            alist.reverse() & odwrócenie w miejscu \\
+            \hline
+            del alist[i] & usunięcie elementu na pozycji bez zwracania - lepiej nie stosować \\
+            \hline
+            alist.index(item) & zwrócenie indeksu pierwszego wystąpienia w liście \\
+            \hline
+            alist.count(item) & zwrócenie liczby wystąpień w liście \\
+            \hline
+            alist.remove(item) & usunięcie pierwszego wystąpienia w liście \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+\end{frame}
+
+\begin{frame}{Metody list}
+    \begin{multicols}{2}
+        \lstinputlisting[linewidth=0.4\textwidth]{introduction/code/sequence_types/lists.py}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Metody napisów}
+    \Wider{
+    \begin{table}
+        \centering
+        \begin{tabular}{|p{4cm}|p{7cm}|}
+            \hline
+            astring.center(s) & zwrócenie wyśrodkowanego napisu w polu o rozmiarze s (nie w miejscu) \\
+            astring.ljust(s) & zwrócenie wyrównanego do lewej \\
+            astring.rjust(s) & zwrócenie wyrównanego do prawej \\
+            \hline
+            astring.count(item) & zwrócenie liczby wystąpień podnapisu w napisie \\
+            \hline
+            astring.index(item) /\newline astring.find(item) & zwrócenie indeksu pierwszego wystąpienia podnapisu \\
+            \hline
+            astring.split(sep) & podzielenie napisu na listę napisów w miejscu wystąpienia podnapisów \\
+            \hline
+            astring.lower() & zamiana na małe litery \\
+            astring.upper() & zamiana na duże litery \\
+            astring.capitalize() & pierwsza duża, reszta mała \\
+            \hline
+            astring.replace(old, new) & zastąpienie podstringu nowym stringiem \\
+            \hline
+        \end{tabular}
+    \end{table}
+    }
+\end{frame}
+
+\begin{frame}{Metody napisów}
+    \lstinputlisting{introduction/code/sequence_types/strings_1.py}
+\end{frame}
+
+\begin{frame}{Metody napisów}
+    \lstinputlisting{introduction/code/sequence_types/strings_2.py}
+\end{frame}
+
+\begin{frame}{Metoda format()}
+    \lstinputlisting{introduction/code/sequence_types/strings_format.py}
+\end{frame}
+
+\begin{frame}{Escape character, escape sequence}
+    \begin{center}
+        znak modyfikacji (escape character) = znak ucieczki = znak uwalniania \\
+        sekwencja zmodyfikowana (escape sequence) = znak modyfikacji + sekwencja następująca \\
+    \end{center}
+    \lstinputlisting{introduction/code/sequence_types/strings_escape.py}
+\end{frame}
